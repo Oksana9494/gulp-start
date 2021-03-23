@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
-const dell = require('dell');
+const del = require('del');
 const ghPages = require('gulp-gh-pages');
 
 
@@ -63,7 +63,7 @@ function build() {
         .pipe(dest('dist'))
 }
 function cleanDist() {
-    return dell('dist')
+    return del('dist')
 }
 function watching() {
     watch(['app/scss/**/*.scss'], styles);
@@ -72,7 +72,7 @@ function watching() {
 
 }
 function deploy() {
-    return gulp.src('./dist/**/*')
+    return gulp.src('dist/**/*')
         .pipe(ghPages());
 }
 
