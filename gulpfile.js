@@ -72,6 +72,12 @@ function watching() {
 }
 
 
+function deploy() {
+    return src('dist/**/*')
+        .pipe(ghPages());
+}
+
+
 exports.styles = styles;
 exports.watching = watching;
 exports.browsersync = browsersync;
