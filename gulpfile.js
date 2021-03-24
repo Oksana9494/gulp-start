@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
-const dell = require('dell');
+const del = require('del');
 
 
 function browsersync() {
@@ -62,7 +62,7 @@ function build() {
     .pipe(dest('dist'))
 }
 function cleanDist() {
-    return dell('dist')
+    return del('dist')
 }
 function watching() {
     watch(['app/scss/**/*.scss'], styles);
